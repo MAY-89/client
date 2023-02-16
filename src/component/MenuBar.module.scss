@@ -1,13 +1,16 @@
-.menuBar {
-    background-color: aqua;
+.button{
+    margin-right: 5px;
 }
-.black-nav {
-    background-color: black;
+.menuBarItem {
+    float: right;
+    display: flex;
+}
+.menuBar {
+    background-color: rgb(138, 254, 145);
     width: 100%;
-    color: white;
-    display: block;
-    padding: 10px;
-
+    color: rgb(189, 135, 135);
+    display: inline-block;
+    padding: 5px;
     text-align: center;
     align-items: center;
 }
