@@ -1,3 +1,32 @@
 .tui-grid-content-area {
     display: flex;
 }
+.tui-grid-cell.cell-red{
+    background-color: rgb(255, 0, 0);
+    opacity: 70%;
+}
+.tui-grid-cell.cell-green{
+    background-color: rgb(78, 255, 78);
+    opacity: 70%;
+}
+.tui-grid-cell.cell-yellow{
+    background-color: rgb(220, 209, 55);
+    opacity: 70%;
+}
+.tui-grid-cell.cell-black{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    opacity: 70%;
+}
+.tui-grid-cell.cell-danger{
+    background-color: black;
+    color: rgb(255, 0, 0);
+}
+.tui-grid-cell.cell-normal{
+    background-color: rgb(197, 197, 197);
+    color: rgb(255, 0, 0);
+}
+.tui-grid-cell.cell-inven{
+    font-weight: 200;
+    font-style: italic;
+}
