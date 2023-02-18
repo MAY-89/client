@@ -1,16 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import Main from './main/Main';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import Main from "./main/Main";
+import ThemeContextWrapper from "./component/darkmode/ThemeContextWrapper";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Main />
-  </React.StrictMode>
+  <ThemeContextWrapper>
+    <React.StrictMode>
+      <Main />
+    </React.StrictMode>{' '}
+  </ThemeContextWrapper>
 );
 
 // If you want to start measuring performance in your app, pass a function
