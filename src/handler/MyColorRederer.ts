@@ -1,48 +1,20 @@
 import { CellRendererProps } from "tui-grid/types/renderer";
+import { CellRendererType } from "../component/myGrid/MyGrid";
 import DataItem from "../items/DataItem";
 
-export default class MyColorRenderer {
-  el: HTMLDivElement;
+export default class MyColorRenderer implements CellRendererType {
+  el: HTMLElement;
+  data?: DataItem;
+  gridEl: HTMLElement;
   constructor(props: CellRendererProps) {
-    const el = document.createElement("div");
+    this.el = document.createElement("div");
+    this.el.style.width = "100%";
+    this.el.style.height = "100%";
+    this.el.style.boxSizing = "border-box";
+    this.el.style.padding = "5px";
     const { grid, rowKey, columnInfo, value }: CellRendererProps = props;
-
-    el.addEventListener("input", () => {
-      grid.setValue(rowKey, columnInfo.name, el.innerHTML);
-    });
-
-
-    // let data: DataItem = JSON.parse(String(value));
-    let stringValue = JSON.stringify(value);
-    let data : DataItem = JSON.parse(stringValue);
-
-    switch (data.level) {
-      case 0 :
-        grid.addCellClassName(rowKey, columnInfo.name, "cell-inven");
-        break;
-      case 1:
-        grid.addCellClassName(rowKey, columnInfo.name, "cell-red");
-        break;
-      case 2:
-        grid.addCellClassName(rowKey, columnInfo.name, "cell-green");
-        break;
-      case 3:
-        break;
-      case 4:
-        grid.addCellClassName(rowKey, columnInfo.name, "cell-yellow");
-        break;
-      case 5:
-        grid.addCellClassName(rowKey, columnInfo.name, "cell-danger");
-      break;
-      default:
-        grid.addCellClassName(rowKey, columnInfo.name, "cell-black");
-        break;
-    }
-
-    
-    grid.setValue(rowKey, columnInfo.name, data.value);
-
-    this.el = el;
+    const gridEl : HTMLElement = grid.getElement(rowKey, columnInfo.name) as HTMLElement;
+    this.gridEl = gridEl
     this.render(props);
   }
 
@@ -55,6 +27,13 @@ export default class MyColorRenderer {
   }
 
   render(props: CellRendererProps) {
-    this.el.innerHTML = String(props.value);
+    const value = props.value;
+    let stringValue = JSON.stringify(value);
+    let dataItem: DataItem = JSON.parse(stringValue);
+    this.data = dataItem;
+    this.gridEl.style.background = 'red';
+    this.el.textContent = String(this.data.value);
+    props.value = value;
+    return this.el;
   }
 }
