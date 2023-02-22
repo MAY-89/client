@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "tui-grid/dist/tui-grid.css";
-import Grid from "@toast-ui/react-grid";
 import TGrid from "tui-grid";
 import { OptColumn, OptRow } from "tui-grid/types/options";
 import MenuBar from "../component/menubar/MenuBar";
