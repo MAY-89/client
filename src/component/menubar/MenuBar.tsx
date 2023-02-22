@@ -6,7 +6,7 @@ import {
   ReloadOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import DarkModeToggle from "../darkmode/DarkModeToggle";
+// import DarkModeToggle from "../darkmode/DarkModeToggle";
 
 const settingStock = () => {
   console.log("Setting Stock");
@@ -44,7 +44,7 @@ function MenuBar() {
           onClick ={onReloadData}/>
         </Tooltip>
         <Tooltip title="모드">
-          <DarkModeToggle/>
+          {/* <DarkModeToggle/> */}
         </Tooltip>
       </Col>
     </Row>
