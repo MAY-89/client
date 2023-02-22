@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "tui-grid/dist/tui-grid.css";
 import Grid from "@toast-ui/react-grid";
+import TGrid from "tui-grid";
 import { OptColumn, OptRow } from "tui-grid/types/options";
 import MenuBar from "../component/menubar/MenuBar";
 import "./grid.css";
-import { CellRendererProps } from "tui-grid/types/renderer";
 import MyColorRenderer from "../handler/MyColorRederer";
 import DataItem from "../items/DataItem";
 import dummy from "../resource/dummydata.json";
-import Layout from "antd/es/layout/layout";
-
-interface CellRenderer {
-  getElement(): HTMLElement;
-  focused?(): void;
-  mounted?(parent: HTMLElement): void;
-  render(props: CellRendererProps): void;
-  beforeDestroy?(): void;
-}
+import MyGrid from "../component/myGrid/MyGrid";
 
 const columns: OptColumn[] = [
   {
@@ -25,6 +17,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     sortable: true,
     resizable: true,
     renderer: {
@@ -37,6 +30,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -49,6 +43,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -61,6 +56,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -73,6 +69,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -85,6 +82,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -97,6 +95,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -109,6 +108,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -121,6 +121,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -133,6 +134,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -145,6 +147,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -157,6 +160,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -169,6 +173,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -181,6 +186,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -193,6 +199,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -205,6 +212,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -217,6 +225,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -229,6 +238,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -241,6 +251,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -253,6 +264,7 @@ const columns: OptColumn[] = [
     align: "center",
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
+    width: 80,
     resizable: true,
     sortable: true,
     renderer: {
@@ -266,6 +278,7 @@ const columns: OptColumn[] = [
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
     resizable: true,
+    width: 80,
     sortable: true,
     renderer: {
       type: MyColorRenderer,
@@ -278,6 +291,7 @@ const columns: OptColumn[] = [
     filter: { type: "text", showApplyBtn: true, showClearBtn: true },
     sortingType: "desc",
     resizable: true,
+    width: 200,
     sortable: true,
     renderer: {
       type: MyColorRenderer,
@@ -285,29 +299,55 @@ const columns: OptColumn[] = [
   },
 ];
 
-// const group
+/**
+ * Grid 기본 설정
+ */
+const onGridInit = () => {
+  TGrid.applyTheme("default", {
+    cell: {
+      normal: {
+        border: "black",
+      },
+      header: {
+        background: "gray",
+        text: "white",
+      },
+    },
+  });
+};
 
 function Main() {
   const [data, setData] = useState<OptRow[]>();
 
   useEffect(() => {
     setData(dummy);
+    onGridInit();
   }, []);
 
   return (
     <div>
-      <Layout>
-        <MenuBar />
-        <Grid
-          columns={columns}
-          data={data}
-          rowHeight={25}
-          bodyHeight={100}
-          heightResizable={true}
-          rowHeaders={["rowNum"]}
-          color={"#000000"}
-        ></Grid>
-      </Layout>
+      <MenuBar />
+      <MyGrid
+        gridProps={{
+          columns,
+          data,
+          bodyHeight: 100,
+          rowHeaders: ["rowNum"],
+          heightResizable: true,
+          rowHeight: 20,
+        }}
+        theme="black"
+      ></MyGrid>
+
+      {/* <Grid
+        columns={columns}
+        data={data}
+        rowHeight={25}
+        bodyHeight={100}
+        heightResizable={false}
+        rowHeaders={["rowNum"]}
+        color={"#000000"}
+      ></Grid> */}
     </div>
   );
 }
