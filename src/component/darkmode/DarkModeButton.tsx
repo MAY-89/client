@@ -27,7 +27,12 @@ const darkButton = (
   />
 )
 
-const DarkModeButton = () => {
+interface Props {
+  setDarkMode : React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const DarkModeButton = (props : Props) => {
+  const { setDarkMode } = props
   const [image, setImage] = useState<JSX.Element>(lightButton);
   const [theme, setTheme] = useState<String>('light');
 
@@ -36,10 +41,12 @@ const DarkModeButton = () => {
     if(theme === 'light'){
       setTheme('dark');
       setImage(darkButton);
+      setDarkMode(true);
       button.style.backgroundColor = "white";
     }else{
       setTheme('light');
       setImage(lightButton);
+      setDarkMode(false);
       button.style.backgroundColor = "black";
     }
   }

@@ -7,7 +7,8 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import DarkModeButton from "../darkmode/DarkModeButton";
-// import DarkModeToggle from "../darkmode/DarkModeToggle";
+import Tiggers from "../modal/Popup";
+import ParentComponent from "../modal/ParentComponent";
 
 const settingStock = () => {
   console.log("Setting Stock");
@@ -20,21 +21,29 @@ const onSyncData = () => {
 const onReloadData = () => {
   console.log("Reload Data");
 };
+interface Props {
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>
+  isDarkMode: boolean
 
-function MenuBar() {
-  const [isDarkMode, setDarkMode] = useState(false);
+}
 
-  const toggleDarkMode = (checked: boolean) => {
-    setDarkMode(checked);
-  };
+
+function MenuBar(props : Props) {
+  const {setDarkMode, isDarkMode} = props;
+  // const [isDarkMode, setDarkMode] = useState(false);
+
+  // const toggleDarkMode = (checked: boolean) => {
+  //   setDarkMode(checked);
+  // };
 
   return (
     <div>
     <Row gutter={2} className={styles.menuBar}>
       <Col xs={24} md={6} className={styles.menuBarItem}>
         <Tooltip title="종목 설정">
-          <Button type="dashed" shape="default" icon={<SettingOutlined />} className={styles.button} 
-          onClick ={settingStock}/>
+          <ParentComponent
+            isDarkMode = {isDarkMode}
+          />
         </Tooltip>
         <Tooltip title="실시간 크롤링">
         <Button type="dashed" shape="default" icon={<PlaySquareOutlined />} className={styles.button}
@@ -45,7 +54,9 @@ function MenuBar() {
           onClick ={onReloadData}/>
         </Tooltip>
         <Tooltip title="모드">
-          <DarkModeButton/>
+          <DarkModeButton 
+            setDarkMode={setDarkMode}
+          />
         </Tooltip>
       </Col>
     </Row>

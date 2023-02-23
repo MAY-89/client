@@ -317,15 +317,20 @@ const onGridInit = () => {
 
 function Main() {
   const [data, setData] = useState<OptRow[]>();
+  const [isDarkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     setData(dummy);
     onGridInit();
-  }, []);
+    console.log(isDarkMode);
+  }, [isDarkMode]);
 
   return (
     <div>
-      <MenuBar />
+      <MenuBar 
+        setDarkMode={setDarkMode}
+        isDarkMode={isDarkMode}
+      />
       <MyGrid
         gridProps={{
           columns,
