@@ -1,0 +1,326 @@
+[
+	{
+		"tigger": "AMGN"
+	},
+	{
+		"tigger": "JNJ"
+	},
+	{
+		"tigger": "PFE"
+	},
+	{
+		"tigger": "PG"
+	},
+	{
+		"tigger": "ABT"
+	},
+	{
+		"tigger": "KO"
+	},
+	{
+		"tigger": "ADP"
+	},
+	{
+		"tigger": "DHR"
+	},
+	{
+		"tigger": "HON"
+	},
+	{
+		"tigger": "NEE"
+	},
+	{
+		"tigger": "IBM"
+	},
+	{
+		"tigger": "AMT"
+	},
+	{
+		"tigger": "DE"
+	},
+	{
+		"tigger": "NVS"
+	},
+	{
+		"tigger": "CAT"
+	},
+	{
+		"tigger": "DEO"
+	},
+	{
+		"tigger": "PYPL"
+	},
+	{
+		"tigger": "BABA"
+	},
+	{
+		"tigger": "UNP"
+	},
+	{
+		"tigger": "GOOG"
+	},
+	{
+		"tigger": "BLK"
+	},
+	{
+		"tigger": "T"
+	},
+	{
+		"tigger": "BMY"
+	},
+	{
+		"tigger": "TM"
+	},
+	{
+		"tigger": "GOOGL"
+	},
+	{
+		"tigger": "COP"
+	},
+	{
+		"tigger": "BUD"
+	},
+	{
+		"tigger": "CVX"
+	},
+	{
+		"tigger": "HD"
+	},
+	{
+		"tigger": "CVS"
+	},
+	{
+		"tigger": "PM"
+	},
+	{
+		"tigger": "SNY"
+	},
+	{
+		"tigger": "VZ"
+	},
+	{
+		"tigger": "CSCO"
+	},
+	{
+		"tigger": "TMO"
+	},
+	{
+		"tigger": "INTC"
+	},
+	{
+		"tigger": "MCD"
+	},
+	{
+		"tigger": "TXN"
+	},
+	{
+		"tigger": "LLY"
+	},
+	{
+		"tigger": "UNH"
+	},
+	{
+		"tigger": "SPGI"
+	},
+	{
+		"tigger": "BHP"
+	},
+	{
+		"tigger": "MA"
+	},
+	{
+		"tigger": "TJX"
+	},
+	{
+		"tigger": "ELV"
+	},
+	{
+		"tigger": "MDT"
+	},
+	{
+		"tigger": "GILD"
+	},
+	{
+		"tigger": "AMZN"
+	},
+	{
+		"tigger": "PDD"
+	},
+	{
+		"tigger": "CMCSA"
+	},
+	{
+		"tigger": "ACN"
+	},
+	{
+		"tigger": "MRK"
+	},
+	{
+		"tigger": "SYK"
+	},
+	{
+		"tigger": "SCHW"
+	},
+	{
+		"tigger": "COST"
+	},
+	{
+		"tigger": "INTU"
+	},
+	{
+		"tigger": "PLD"
+	},
+	{
+		"tigger": "BAC"
+	},
+	{
+		"tigger": "TMUS"
+	},
+	{
+		"tigger": "ABBV"
+	},
+	{
+		"tigger": "PEP"
+	},
+	{
+		"tigger": "LIN"
+	},
+	{
+		"tigger": "SONY"
+	},
+	{
+		"tigger": "UPS"
+	},
+	{
+		"tigger": "NKE"
+	},
+	{
+		"tigger": "LOW"
+	},
+	{
+		"tigger": "XOM"
+	},
+	{
+		"tigger": "QCOM"
+	},
+	{
+		"tigger": "SBUX"
+	},
+	{
+		"tigger": "DIS"
+	},
+	{
+		"tigger": "WMT"
+	},
+	{
+		"tigger": "EQNR"
+	},
+	{
+		"tigger": "HDB"
+	},
+	{
+		"tigger": "ASML"
+	},
+	{
+		"tigger": "ORCL"
+	},
+	{
+		"tigger": "AMAT"
+	},
+	{
+		"tigger": "AVGO"
+	},
+	{
+		"tigger": "SAP"
+	},
+	{
+		"tigger": "NFLX"
+	},
+	{
+		"tigger": "NOW"
+	},
+	{
+		"tigger": "ADBE"
+	},
+	{
+		"tigger": "GS"
+	},
+	{
+		"tigger": "C"
+	},
+	{
+		"tigger": "RTX"
+	},
+	{
+		"tigger": "V"
+	},
+	{
+		"tigger": "JPM"
+	},
+	{
+		"tigger": "CRM"
+	},
+	{
+		"tigger": "UL"
+	},
+	{
+		"tigger": "TTE"
+	},
+	{
+		"tigger": "TD"
+	},
+	{
+		"tigger": "AMD"
+	},
+	{
+		"tigger": "NVO"
+	},
+	{
+		"tigger": "BA"
+	},
+	{
+		"tigger": "AAPL"
+	},
+	{
+		"tigger": "AZN"
+	},
+	{
+		"tigger": "LMT"
+	},
+	{
+		"tigger": "TSM"
+	},
+	{
+		"tigger": "HSBC"
+	},
+	{
+		"tigger": "RY"
+	},
+	{
+		"tigger": "META"
+	},
+	{
+		"tigger": "MSFT"
+	},
+	{
+		"tigger": "MS"
+	},
+	{
+		"tigger": "NVDA"
+	},
+	{
+		"tigger": "TSLA"
+	},
+	{
+		"tigger": "SHEL"
+	},
+	{
+		"tigger": "WFC"
+	},
+	{
+		"tigger": "AXP"
+	},
+	{
+		"tigger": "BP"
+	}
+]
