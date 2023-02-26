@@ -5,7 +5,6 @@ import { OptColumn, OptRow } from "tui-grid/types/options";
 import MenuBar from "../component/menubar/MenuBar";
 import "./grid.css";
 import MyColorRenderer from "../handler/MyColorRederer";
-import DataItem from "../items/DataItem";
 import dummy from "../resource/dummydata.json";
 import MyGrid from "../component/myGrid/MyGrid";
 
@@ -331,7 +330,9 @@ function Main() {
         setDarkMode={setDarkMode}
         isDarkMode={isDarkMode}
       />
+      <div id="mainGrid">
       <MyGrid
+      id="mainGrid"
         gridProps={{
           columns,
           data,
@@ -340,9 +341,9 @@ function Main() {
           heightResizable: true,
           rowHeight: 20,
         }}
-        theme="black"
+        theme={isDarkMode}
       ></MyGrid>
-
+    </div>
       {/* <Grid
         columns={columns}
         data={data}
