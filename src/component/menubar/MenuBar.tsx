@@ -41,7 +41,7 @@ function MenuBar(props : Props) {
     <Row gutter={2} className={styles.menuBar}>
       <Col xs={24} md={6} className={styles.menuBarItem}>
         <Tooltip title="종목 설정">
-          <ParentComponent
+          <ParentComponent className={styles.button}
             isDarkMode = {isDarkMode}
           />
         </Tooltip>
