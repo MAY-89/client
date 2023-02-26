@@ -1,8 +1,8 @@
 import { CellRendererProps } from "tui-grid/types/renderer";
-import { CellRendererType } from "../component/myGrid/MyGrid";
+// import { CellRendererType } from "../component/myGrid/MyGrid";
 import DataItem from "../items/DataItem";
 
-export default class MyColorRenderer implements CellRendererType {
+export default class MyColorRenderer {
   el: HTMLElement;
   data?: DataItem;
   gridEl: HTMLElement;
@@ -12,9 +12,10 @@ export default class MyColorRenderer implements CellRendererType {
     this.el.style.height = "100%";
     this.el.style.boxSizing = "border-box";
     this.el.style.padding = "5px";
-    const { grid, rowKey, columnInfo, value }: CellRendererProps = props;
+    const { grid , rowKey, columnInfo, value }: CellRendererProps = props;
     const gridEl : HTMLElement = grid.getElement(rowKey, columnInfo.name) as HTMLElement;
     this.gridEl = gridEl
+    // grid.addRowClassName(rowKey, "tui-grid-cell.cell")
     this.render(props);
   }
 
@@ -31,7 +32,7 @@ export default class MyColorRenderer implements CellRendererType {
     let stringValue = JSON.stringify(value);
     let dataItem: DataItem = JSON.parse(stringValue);
     this.data = dataItem;
-    this.gridEl.style.background = 'red';
+    this.gridEl.style.background = 'green';
     this.el.textContent = String(this.data.value);
     props.value = value;
     return this.el;
