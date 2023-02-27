@@ -6,24 +6,21 @@ import Popup from "./Popup";
 import axios, { AxiosResponse } from "axios";
 import MyGrid from "../myGrid/MyGrid";
 import dummyTigger from "../../resource/dummyTigger.json";
-import { OptColumn, OptRow } from "tui-grid/types/options";
-import MyModalRenderer from "../../handler/MyModalRederer";
+import { GridColDef, GridRowsProp } from "@material-ui/data-grid";
 
 const url =
   window.origin.indexOf("3000") > 0
     ? "http://localhost:80"
     : "https://클라우드 주소";
 
-const columns: OptColumn[] = [
+const columns: GridColDef[] = [
   {
-    header: "종목",
-    name: "tigger",
+    field: "tigger",
+    headerName: "종목",
+    flex:1,
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 100,
-    sortable: true,
-    resizable: true,
+    filterable:true,
+    sortable:true,
   },
 ];
 
@@ -36,12 +33,18 @@ const ParentComponent = (props: Props) => {
   const { isDarkMode, className } = props;
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   // const [data, setData] = useState<AxiosResponse>();
-  const [data, setData] = useState<OptRow[]>();
+  const [rows, setRows] = useState<GridRowsProp>(dummyTigger);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     // getTiggerData();
-    setData(dummyTigger);
+    const data : any = dummyTigger.map((val, idx) => {
+     return {
+      "id": idx,
+      "tigger": val.tigger
+     }
+    });
+    setRows(data);
   }, []);
 
   // const getTiggerData = async () => {
@@ -79,23 +82,23 @@ const ParentComponent = (props: Props) => {
         onClick={() => handleOpenPopup(true)}
         className={className}
       />
-
       <Modal
         open={isPopupOpen}
         onOk={() => handleOpenPopup(false)}
         onCancel={() => handleOpenPopup(false)}
         width={300}
-        style={{ height: 1000 }}
+        style={{ height: 300 }}
       >
         <MyGrid
           id="myModalGrid"
           gridProps={{
             columns,
-            data,
+            rows,
             bodyHeight: 300,
-            rowHeaders: ["rowNum"],
-            heightResizable: true,
-            rowHeight: 20,
+            autoHeight:false
+            // rowHeaders: ["rowNum"],
+            // heightResizable: true,
+            // rowHeight: 20,
           }}
           theme={isDarkMode}
         ></MyGrid>

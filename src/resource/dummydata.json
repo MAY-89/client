@@ -1,6 +1,7 @@
 [
-{
-    "invenst": {"value": "AMGN", "level":0},
+{   
+    "id":1,
+    "invenst": {"value": "AMGN"},
     "fiftytwoHigher": {"value": "-18.92%", "level":4},
     "fiftytwoLower": {"value": "12.19%", "level":3},
     "rsi" : {"value": 35.76, "level":4},
@@ -25,7 +26,33 @@
 },
 
 {
-    "invenst": {"value": "JNJ", "level":0},
+    "id":2,
+    "invenst": {"value": "JNJ"},
+    "fiftytwoHigher": {"value": "-14.09%", "level":4},
+    "fiftytwoLower": {"value": "3%", "level":3},
+    "rsi" : {"value": 34.42, "level":5},
+    "per": {"value": 23.8, "level":3},
+    "roe": {"value": "24.5%", "level":3},
+    "pbr": {"value": 5.65, "level":1},
+    "fpe": {"value": 14.68, "level":1},
+    "eps": {"value": 6.74, "level":1},
+    "epsy": {"value": "3.9%", "level":9},
+    "margin": {"value": "67.3%", "level":4},
+    "roa": {"value": "10.3%", "level":5},
+    "peg": {"value": 6.11, "level":3},
+    "roi": {"value": "19.4%", "level":2},
+    "smath": {"value": "-6.59%", "level":4},
+    "smafifty": {"value": "-6.52%", "level":1},
+    "smatwenty": {"value": "-2.46%", "level":4},
+    "price": {"value": "$160.39", "level":3},
+    "tprice": {"value": "$183.63", "level":1},
+    "odds": {"value": "2.82%", "level":1},
+    "fluctuation": {"value":  "1.36%", "level":2},
+    "marketCap": {"value": "$417400000000", "level":1}
+},
+{
+    "id":3,
+    "invenst": {"value": "dNJ"},
     "fiftytwoHigher": {"value": "-14.09%", "level":4},
     "fiftytwoLower": {"value": "3%", "level":3},
     "rsi" : {"value": 34.42, "level":5},

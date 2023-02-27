@@ -1,33 +1,39 @@
 .tui-grid-content-area {
     display: flex;
 }
-.tui-grid-cell.cell-red{
+.cell-levelOne{
+    background-color: rgb(197, 255, 195);
+}
+.cell-levelTwo{
+    background-color: rgb(133, 255, 129);
+}
+.cell-levelThree{
+    background-color: rgb(96, 255, 90);
+}
+.cell-levelFour{
     background-color: rgb(9, 255, 0);
 }
-.tui-grid-cell.cell-green{
-    background-color: rgb(84, 255, 78);
+.cell-levelFive{
+    background-color: rgb(6, 174, 0);
 }
-.tui-grid-cell.cell-yellow{
-    background-color: rgb(132, 255, 128);
-}
-.tui-grid-cell.cell-yellow{
-    background-color: rgb(132, 255, 128);
-}
-.tui-grid-cell.cell-yellow{
-    background-color: rgb(132, 255, 128);
-}
-.tui-grid-cell.cell-black{
+.cell-black{
     background-color: rgb(0, 0, 0);
     color: white;
 }
-.tui-grid-cell.cell-danger{
+.cell-danger{
     background-color: black;
     color: rgb(255, 0, 0);
 }
-.tui-grid-cell.cell-normal{
-    background-color: rgb(197, 197, 197);
+.cell-normal{
+    background-color: rgb(223, 223, 223);
 }
-.tui-grid-cell.cell-inven{
+.cell-inven{
     font-weight: 200;
     font-style: italic;
+}
+.header-color{
+    background-color: darkgray;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 14px;
 }

@@ -1,358 +1,270 @@
 import React, { useEffect, useState } from "react";
-import "tui-grid/dist/tui-grid.css";
-import TGrid from "tui-grid";
-import { OptColumn, OptRow } from "tui-grid/types/options";
 import MenuBar from "../component/menubar/MenuBar";
 import "./grid.css";
-import MyColorRenderer from "../handler/MyColorRederer";
 import dummy from "../resource/dummydata.json";
 import MyGrid from "../component/myGrid/MyGrid";
+import {
+  GridColDef,
+  GridFilterOperator,
+  GridRowsProp,
+  GridToolbarContainer,
+  GridToolbarExport,
+  GridValueFormatterParams,
+} from "@material-ui/data-grid";
 
-const columns: OptColumn[] = [
+const cols: GridColDef[] = [
   {
-    header: "종목",
-    name: "invenst",
+    headerName: "종목",
+    field: "invenst",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
+    filterable: true,
     sortable: true,
-    resizable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 120,
+    // filterOperators: GridFilterOperator[] 
   },
   {
-    header: "52주고점",
-    name: "fiftytwoHigher",
+    field: "fiftytwoHigher",
+    headerName: "52주 고점",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 140,
   },
   {
-    header: "52주저점",
-    name: "fiftytwoLower",
+    field: "fiftytwoLower",
+    headerName: "52주 저점",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 140,
   },
   {
-    header: "RSI",
-    name: "rsi",
+    field: "rsi",
+    headerName: "RSI",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 50,
   },
   {
-    header: "PER",
-    name: "per",
+    field: "per",
+    headerName: "PER",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "ROE",
-    name: "roe",
+    field: "roe",
+    headerName: "ROE",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "PBR",
-    name: "pbr",
+    field: "pbr",
+    headerName: "PBR",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
+    minWidth: 100,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
   },
   {
-    header: "F-P/E",
-    name: "fpe",
+    field: "fpe",
+    headerName: "F-P/E",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "EPS",
-    name: "eps",
+    field: "eps",
+    headerName: "EPS",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "EPS Y",
-    name: "epsy",
+    field: "epsy",
+    headerName: "EPS Y",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "Margine",
-    name: "margin",
+    field: "margin",
+    headerName: "Margine",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 120,
   },
   {
-    header: "ROA",
-    name: "roa",
+    field: "roa",
+    headerName: "ROA",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "PEG",
-    name: "peg",
+    field: "peg",
+    headerName: "PEG",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "ROI",
-    name: "roi",
+    field: "roi",
+    headerName: "ROI",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "SMA200",
-    name: "smath",
+    field: "smath",
+    headerName: "SMA200",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 120,
   },
   {
-    header: "SMA50",
-    name: "smafifty",
+    field: "smafifty",
+    headerName: "SMA50",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 120,
   },
   {
-    header: "SMA20",
-    name: "smatwenty",
+    field: "smatwenty",
+    headerName: "SMA20",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 120,
   },
   {
-    header: "PRICE",
-    name: "price",
+    field: "price",
+    headerName: "PRICE",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 120,
   },
   {
-    header: "TAGET PRICE",
-    name: "tprice",
+    field: "tprice",
+    headerName: "TAGET PRICE",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 150,
   },
   {
-    header: "배당률",
-    name: "odds",
+    field: "odds",
+    headerName: "배당률",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    width: 80,
-    resizable: true,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 100,
   },
   {
-    header: "등락율",
-    name: "fluctuation",
+    field: "fluctuation",
+    headerName: "등락율",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    resizable: true,
-    width: 80,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 80,
   },
   {
-    header: "시가총액",
-    name: "marketCap",
+    field: "marketCap",
+    headerName: "시가총액",
     align: "center",
-    filter: { type: "text", showApplyBtn: true, showClearBtn: true },
-    sortingType: "desc",
-    resizable: true,
-    width: 200,
+    disableColumnMenu: true,
+    filterable: false,
     sortable: true,
-    renderer: {
-      type: MyColorRenderer,
-    },
+    minWidth: 150,
   },
 ];
 
-/**
- * Grid 기본 설정
- */
-const onGridInit = () => {
-  TGrid.applyTheme("default", {
-    cell: {
-      normal: {
-        border: "black",
-      },
-      header: {
-        background: "gray",
-        text: "white",
-      },
-    },
-  });
-};
-
 function Main() {
-  const [data, setData] = useState<OptRow[]>();
+  const [rows, setRows] = useState<GridRowsProp>(dummy);
   const [isDarkMode, setDarkMode] = useState(false);
+  const [columns, setColumns] = useState<GridColDef[]>(cols);
 
   useEffect(() => {
-    setData(dummy);
-    onGridInit();
+    const userColumns: GridColDef[] = cols.map((value, idx) => {
+      return {
+        ...value,
+        headerAlign: "center",
+        valueGetter: (params: any) => {
+          return params.value;
+        },
+        valueFormatter: (params: GridValueFormatterParams) => {
+          const value = params.row[params.field].value;
+          return value;
+        },
+        sortComparator: (v1, v2, param1, param2) => {
+          const value1 = param1.api.getCellValue(param1.id, param1.field).value;
+          const value2 = param2.api.getCellValue(param2.id, param2.field).value;
+          if (value1 < value2) {
+            return -1;
+          } else if (value1 > value2) {
+            return 1;
+          } else {
+            return 0;
+          }
+        },
+        headerClassName: "header-color",
+      };
+    });
+    setColumns(userColumns);
+    setRows(dummy);
     console.log(isDarkMode);
   }, [isDarkMode]);
 
   return (
     <div>
-      <MenuBar 
-        setDarkMode={setDarkMode}
-        isDarkMode={isDarkMode}
-      />
-      <div id="mainGrid">
+      <MenuBar setDarkMode={setDarkMode} isDarkMode={isDarkMode} />
       <MyGrid
-      id="mainGrid"
+        id="mainGrid"
         gridProps={{
           columns,
-          data,
-          bodyHeight: 100,
-          rowHeaders: ["rowNum"],
-          heightResizable: true,
-          rowHeight: 20,
+          rows,
+          autoHeight: true,
+          // bodyHeight: 100,
+          // rowHeaders: ["rowNum"],
+          // heightResizable: true,
+          // rowHeight: 20,
         }}
         theme={isDarkMode}
       ></MyGrid>
-    </div>
-      {/* <Grid
-        columns={columns}
-        data={data}
-        rowHeight={25}
-        bodyHeight={100}
-        heightResizable={false}
-        rowHeaders={["rowNum"]}
-        color={"#000000"}
-      ></Grid> */}
     </div>
   );
 }
