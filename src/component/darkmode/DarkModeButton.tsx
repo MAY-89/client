@@ -42,12 +42,12 @@ const DarkModeButton = (props : Props) => {
       setTheme('dark');
       setImage(darkButton);
       setDarkMode(true);
-      button.style.backgroundColor = "white";
+      button.style.backgroundColor = "black";
     }else{
       setTheme('light');
       setImage(lightButton);
       setDarkMode(false);
-      button.style.backgroundColor = "black";
+      button.style.backgroundColor = "white";
     }
   }
 
